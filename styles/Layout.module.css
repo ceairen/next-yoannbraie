@@ -14,6 +14,8 @@
     background-color: rgba(0, 0, 0, .8);
     transform: translateY(-100vh);
     transition: transform .3s;
+    opacity: 0;
+    animation: navComeOn .3s linear .3s forwards;
 }
 
 .navButtonExpand {
@@ -25,7 +27,7 @@
     height: buttonSize;
     width: buttonSize;
     transform: translateY(0) translateX(0) rotateZ(45deg);
-    transition: transform .6s .3s;
+    transition: transform .6s .1s;
     cursor: pointer;
 }
 
@@ -100,7 +102,40 @@
 .navComponent a {
     color: white;
     font-size: 2rem;
-    transition: background-color .3s;
+    transition: color .3s;
+    position: relative;
+}
+
+.navComponent a::before, .navComponent a::after {
+    content:'';
+    position: absolute;
+    background-color: #545454;
+    transition: transform .3s;
+    transform: scale(0);
+}
+
+.navComponent a::before {
+    top: 120%;
+    left: -30px;
+    right: -30px;
+    height: 1px;
+    transform-origin: right;
+}
+
+.navComponent a::after {
+    right: -10px;
+    bottom: -30px;
+    top: -10px;
+    width: 1px;
+    transform-origin: bottom;
+}
+
+.navComponent a:hover {
+    color: #bdbdbd;
+}
+
+.navComponent a:hover::before, .navComponent a:hover::after {
+    transform: scale(1);
 }
 
 .main {
@@ -112,4 +147,14 @@
 
 .section {
     padding: 2rem;
+}
+
+@keyframes navComeOn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }

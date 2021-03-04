@@ -7,7 +7,7 @@ export default function Apropos() {
   return (
     <Layout titlePage="A Propos">
       <Section>
-        <h1>A propos</h1>
+        <h1>Mes créations</h1>
       </Section>
     </Layout>
   )

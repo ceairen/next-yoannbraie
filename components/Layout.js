@@ -49,8 +49,8 @@ export default function Layout(props) {
             </Link>
           </div>
           <div className={styles.navComponent}>
-            <Link href="/a-propos">
-              <a>A Propos</a>
+            <Link href="/creations">
+              <a>Mes créations</a>
             </Link>
           </div>
         </div>
