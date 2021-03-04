@@ -1,13 +1,13 @@
 import Head from 'next/head'
 import Layout from '../components/Layout'
 import Section from '../components/Section'
-import styles from '../styles/Cv.module.css'
+import styles from '../styles/Apropos.module.css'
 
-export default function Cv() {
+export default function Apropos() {
   return (
-    <Layout titlePage="Mon CV">
+    <Layout titlePage="A Propos">
       <Section>
-        <h1>Mon CV</h1>
+        <h1>A propos</h1>
       </Section>
     </Layout>
   )

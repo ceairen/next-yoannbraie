@@ -8,9 +8,14 @@ export default function Layout(props) {
   let titleSuffix = "yoannbraie.fr";
 
   const [titleApp, setTitleApp] = useState("");
+  const [navExpanded, setNavExpanded] = useState(false);
 
   const updatePageTitle = (title) => {
       setTitleApp(title + " - " + titleSuffix);
+  }
+
+  const handleNavExpand = () => {
+    setNavExpanded(navExpanded => !navExpanded);
   }
 
   useEffect(() => {
@@ -31,13 +36,25 @@ export default function Layout(props) {
         <link rel="icon" href="icon.svg" />
         <title>{titleApp}</title>
       </Head>
-      <nav className={styles.nav}>
-        <Link href="/">
-          <a>Accueil</a>
-        </Link>
-        <Link href="/cv">
-          <a>CV</a>
-        </Link>
+      <nav className={`${styles.nav} ${navExpanded ? styles.navExpanded : ''}`}>
+        <div className={styles.navComponentList}>
+          <div className={styles.navComponent}>
+            <Link href="/">
+              <a>Accueil</a>
+            </Link>
+          </div>
+          <div className={styles.navComponent}>
+            <Link href="/cv">
+              <a>CV</a>
+            </Link>
+          </div>
+          <div className={styles.navComponent}>
+            <Link href="/a-propos">
+              <a>A Propos</a>
+            </Link>
+          </div>
+        </div>
+        <button className={`${styles.navButtonExpand} ${navExpanded ? styles.navButtonExpanded : ''}`} onClick={handleNavExpand}><span></span></button>
       </nav>
       <main className={styles.main}>{props.children}</main>
     </>
