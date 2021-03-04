@@ -1,6 +1,7 @@
 @value var-filepath: "./variables/Variables.module.css";
 @value buttonSize: 60px;
 @value navColor: #131313;
+@value cubicAnim: cubic-bezier(.5,-.75,.7,1.6);
 
 .nav {
     position: fixed;
@@ -13,7 +14,7 @@
     height: 100vh;
     background-color: rgba(0, 0, 0, .8);
     transform: translateY(-100vh);
-    transition: transform .3s;
+    transition: transform 1s cubicAnim;
     opacity: 0;
     animation: navComeOn .3s linear .3s forwards;
 }
@@ -27,7 +28,7 @@
     height: buttonSize;
     width: buttonSize;
     transform: translateY(0) translateX(0) rotateZ(45deg);
-    transition: transform .6s .1s;
+    transition: transform .6s 1s;
     cursor: pointer;
 }
 
@@ -43,13 +44,13 @@
     display: block;
     height: 2px;
     background-color: white;
+    transition: transform .5s 1.2s, background-color .5s 1.2s;
 }
 
 .navButtonExpand > span::before, .navButtonExpand > span::after {
     content: '';
     position: absolute;
     transform-origin: 0 50%;
-    transition: transform .5s .5s;
     width: 100%;
 }
 
@@ -83,6 +84,23 @@
     transform: translateY(0);
 }
 
+.navExpanded .navComponent:nth-child(1) {
+    transition: opacity .8s .9s, transform .5s .9s;
+}
+
+.navExpanded .navComponent:nth-child(2) {
+    transition: opacity .8s 1s, transform .5s 1s;
+}
+
+.navExpanded .navComponent:nth-child(3) {
+    transition: opacity .8s 1.1s, transform .5s 1.1s;
+}
+
+
+.navExpanded .navComponent {
+    opacity: 1;
+    transform: translateY(0px);
+}
 
 .navComponentList {
     display: flex;
@@ -90,13 +108,18 @@
     height: 100%;
     flex-wrap: wrap;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .navComponent {
-    flex: 1;
+    min-height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity .4s, transform .5s;
 }
 
 .navComponent a {
@@ -147,6 +170,21 @@
 
 .section {
     padding: 2rem;
+    opacity: 0;
+    animation: sectionComeOn .3s linear .3s forwards;
+    transform: translateY(15px);
+}
+
+@keyframes sectionComeOn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
 }
 
 @keyframes navComeOn {
@@ -157,4 +195,18 @@
     100% {
         opacity: 1;
     }
+}
+
+@media (max-width: 450px) {
+    .main {
+        padding: 3rem 0;
+    }
+
+    .section {
+        padding: 1rem;
+    }
+
+    .navComponent a {
+        font-size: 1.4rem;
+    }    
 }

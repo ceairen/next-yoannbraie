@@ -45,12 +45,12 @@ export default function Layout(props) {
           </div>
           <div className={styles.navComponent}>
             <Link href="/cv">
-              <a>CV</a>
+              <a>Mon CV</a>
             </Link>
           </div>
           <div className={styles.navComponent}>
             <Link href="/creations">
-              <a>Mes créations</a>
+              <a>Créations</a>
             </Link>
           </div>
         </div>
