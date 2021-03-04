@@ -1,11 +1,11 @@
 import Head from 'next/head'
 import Layout from '../components/Layout'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Cv.module.css'
 
 export default function Cv() {
   return (
     <Layout titlePage="Mon CV">
-      Cv
+      <h1>Mon CV</h1>
     </Layout>
   )
 }
