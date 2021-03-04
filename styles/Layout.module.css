@@ -11,7 +11,7 @@
     top: 0;
     width: 100vw;
     height: 100vh;
-    background-color: navColor;
+    background-color: rgba(0, 0, 0, .8);
     transform: translateY(-100vh);
     transition: transform .3s;
 }
@@ -60,12 +60,13 @@
 }
 
 .navButtonExpanded {
-    transform: translateY(-100vh) translateX(calc(-50vw + buttonSize / 2)) rotateZ(0deg);
+    transform: translateY(calc(-100vh + buttonSize / 2)) translateX(calc(50vw - buttonSize / 2)) rotateZ(0deg);
+    background-color: transparent;
 }
 
 .navButtonExpanded > span {
     background-color: transparent;
-    transform: translateX(10px) translateY(30px) rotateZ(0deg) scale(1);
+    transform: translateX(3px) translateY(0px) rotateZ(0deg) scale(1);
 }
 
 .navButtonExpanded > span::before {
