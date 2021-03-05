@@ -19,9 +19,8 @@ export default function Timeline(props) {
 
     useEffect(() => {
         api = new ApiService();
+        observeTimelineDatas();
         api.getTimeline();
-        observeTimelineDatas()
-        
         return () => {
             subscription.unsubscribe();
         }

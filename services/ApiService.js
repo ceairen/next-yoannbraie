@@ -5,7 +5,10 @@ export default class ApiService  {
     constructor() {
       this.endpoint = "http://api.yoannbraie.fr";
       this.method = {
-          timeline: 'timeline'
+          timeline: {
+            path: 'timeline',
+            key: 'data-timeline'
+          }
       }
     }
 
@@ -24,9 +27,23 @@ export default class ApiService  {
     }
 
     async getTimeline () {
-      this.getDatas(this.method.timeline).then(data => {
-        apiServiceMessages.sendTimelineDatas({datas: data})
-      })
+      let storageDatas = localStorage?.getItem(this.method.timeline.key);
+      if(storageDatas !== undefined && storageDatas !== null) {
+        let deliverData = JSON.parse(storageDatas);
+        if(deliverData.savedDate.toString() !== this.getTodayDate().toString()) {
+          localStorage.removeItem(this.method.timeline.key);
+        }
+        apiServiceMessages.sendTimelineDatas({datas: deliverData.data})
+      }else{
+        this.getDatas(this.method.timeline.path).then(data => {
+          let deliverData = {
+            savedDate: this.getTodayDate(),
+            data: data
+          }
+          localStorage?.setItem(this.method.timeline.key, JSON.stringify(deliverData))
+          apiServiceMessages.sendTimelineDatas({datas: deliverData.data})
+        })
+      }
     }
 
     /**
@@ -38,6 +55,14 @@ export default class ApiService  {
       let response = await fetch(url);
       let datas = await response.json();
       return datas;
+    }
+
+    getTodayDate() {
+      var dateObj = new Date();
+      var month = dateObj.getUTCMonth() + 1;
+      var day = dateObj.getUTCDate();
+      var year = dateObj.getUTCFullYear();
+      return year + "-" + month + "-" + day;
     }
 }
 
