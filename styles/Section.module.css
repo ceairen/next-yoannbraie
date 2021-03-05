@@ -18,6 +18,10 @@
     background-color: #1e1f25;
 }
 
+.sectionLightDark {
+    background-color: #24262D;
+}
+
 .sectionFlex {
     display: flex;
     justify-content: center;

@@ -17,6 +17,7 @@
     transition: transform 1s cubicAnim;
     opacity: 0;
     animation: navComeOn .3s linear .3s forwards;
+    font-weight: 200;
 }
 
 .navButtonExpand {

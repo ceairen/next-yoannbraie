@@ -1,7 +1,9 @@
+import { Subject } from 'rxjs';
+
 export default class ApiService  {
 
     constructor() {
-      this.endpoint = "http://api.yoannbraie.fr/";
+      this.endpoint = "http://api.yoannbraie.fr";
       this.method = {
           timeline: 'timeline'
       }
@@ -21,11 +23,28 @@ export default class ApiService  {
         ]
     }
 
+    async getTimeline () {
+      this.getDatas(this.method.timeline).then(data => {
+        apiServiceMessages.sendTimelineDatas({datas: data})
+      })
+    }
+
     /**
      * 
      * @param {string} search 
      */
-    async getDatas(search) {
-      return { };
+    async getDatas(method) {
+      let url = `${this.endpoint}/${method}`
+      let response = await fetch(url);
+      let datas = await response.json();
+      return datas;
     }
-  }
+}
+
+const subject = new Subject();
+
+export const apiServiceMessages = {
+    sendTimelineDatas: message => subject.next({ timelineDatas: message.datas }),
+    clearMessages: () => subject.next(),
+    getMessage: () => subject.asObservable()
+};

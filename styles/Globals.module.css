@@ -1,0 +1,53 @@
+@value hrBulleSize: 5px;
+@value hrColor: #575965;
+
+.globalh1 {
+    font-size: 2rem;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.miniSeparator, .miniSeparatorRight {
+	width: 100%;
+	display: block;
+	height: 10px;
+	margin: 15px 0;
+	position: relative;
+}
+
+.miniSeparator::before, .miniSeparatorRight::before, .miniSeparator::after, .miniSeparatorRight::after {
+	content: "";
+	position: absolute;
+}
+
+.miniSeparatorRight::before, .miniSeparator::before {
+	top: 1px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background-color: hrColor;
+}
+
+.miniSeparatorRight::before {
+	right: 0px;
+}
+
+.miniSeparator::before {
+	left: 0px;
+}
+
+.miniSeparator::after, .miniSeparatorRight::after {
+	width: 17px;
+	height: 3px;
+	background-color: hrColor;
+	top: 4px;
+	border-radius: 4px;
+}
+
+.miniSeparator::after {
+	left: 12px;
+}
+
+.miniSeparatorRight::after {
+	right: 12px;
+}

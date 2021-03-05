@@ -1,0 +1,101 @@
+@value imgsize: 35px;
+@value imgsizeLittle: 28px;
+
+.timelineBlocUl {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 80%;
+    max-width: 550px;
+    margin: auto;
+}
+
+.timelineBlocCard {
+    background-color: #24262D;
+    width: 100%;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding: 3rem;
+}
+
+.leftTimelineBlocCard {
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(140deg, rgba(36,38,45,0.6937149859943977) 0%, rgba(30,31,37,1) 90%);
+}
+
+.rightTimelineBlocCard {
+    border-right: 2px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(280deg, rgba(36,38,45,0.6937149859943977) 0%, rgba(30,31,37,1) 90%);
+}
+
+.timelineBlocCardHeader img, .timelineBlocCardHeader h3 {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.timelineBlocCardHeader img {
+    width: imgsize;
+    filter: grayscale(0.6);
+    transform: scale(.90);
+}
+
+.timelineBlocCardHeader h3 {
+    font-size: 18px;
+    padding: 0 10px;
+}
+
+.timelineBlocCardContent {
+    font-size: 14px;
+}
+
+.timelineBlocCardContent ul li {
+    font-weight: 200;
+}
+
+
+.timelineBlocCardContent ul li::before {
+    content: '> ';
+    font-weight: 100;
+    color: #ff9ebf;
+}
+
+.timelineBlocCardContent p {
+    font-weight: 200;
+}
+
+.timelineBlocCardFooter {
+    font-size: 11px;
+    font-weight: 300;
+    font-style: italic;
+    text-align: right;
+}
+
+.timelineBlocCardFooter label {
+    display: block;
+}
+
+@media (max-width: 450px) {
+    .timelineBlocUl {
+        width: 100%;
+    }
+
+    .timelineBlocCard {
+        padding: 1.5rem 10px;
+    }
+
+    .timelineBlocCardHeader h3 {
+        font-size: 14px;
+        padding: 0 4px;
+    }
+
+    .timelineBlocCardHeader img {
+        width: imgsizeLittle;
+    }
+
+    .timelineBlocCardContent {
+        font-size: 12px;
+    }
+
+    .timelineBlocCardFooter {
+        font-size: 10px;
+    }
+}

@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import Hello from '../components/blocs/Hello'
+import Timeline from '../components/blocs/Timeline'
 import Layout from '../components/Layout'
 import Section from '../components/Section'
 import BackgroundAnimated from '../components/utils/BackgroundAnimated'
@@ -15,8 +16,11 @@ export default function Home() {
         <Hello />
       </Section>
       <Section options={{mode: 'full', dark: true, observable: true}}>
-        <h1>Timeline</h1>
+        <Timeline></Timeline>
       </Section>
+      {/* <Section options={{mode: 'full', lightDark: true, observable: true}}>
+        <h1>Aya</h1>
+      </Section> */}
     </Layout>
   )
 }

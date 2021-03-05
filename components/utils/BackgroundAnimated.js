@@ -11,8 +11,6 @@ export default function BackgroundAnimated(props) {
     const initBackground = () => {
         let keywords = api.getKeywords();
         setKeywords([...keywords]);
-
-        console.log(keywords)
         
     }
 

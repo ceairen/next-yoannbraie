@@ -10,6 +10,8 @@
     background: linear-gradient(140deg, rgb(66 37 37) -15%, rgba(0,0,0,0) 50%);
     opacity: 0;
     animation: comeOn .5s linear 1.5s forwards;
+    z-index: -1;
+    overflow: hidden;
 }
 
 .backgroundBlocFlex {
@@ -89,7 +91,7 @@
 .backgroundBlocFlex li:nth-child(8) .backgroundBlocFlexLabel {
     margin-top: 3vh;
     margin-left: -10vw;
-    animation: animType_two 14s cubic-bezier(.5,-.75,.7,1.6) 0s alternate infinite;
+    animation: animType_two 7s cubic-bezier(.5,-.75,.7,1.6) 0s alternate infinite;
 }
 
 .backgroundBlocFlex li:nth-child(9) .backgroundBlocFlexLabel {

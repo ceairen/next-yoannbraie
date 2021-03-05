@@ -28,6 +28,15 @@ export default function Layout(props) {
     }
   }, [])
 
+  const handleClickLink = (e) => {
+    e.preventDefault();
+    let link = e.target.getAttribute('data-href');
+    setNavExpanded(navExpanded => false);
+    setTimeout(() => {
+      document.location.href = link;
+    }, 600)
+  }
+
   return (
     <>
       <Head>
@@ -40,17 +49,17 @@ export default function Layout(props) {
         <div className={styles.navComponentList}>
           <div className={styles.navComponent}>
             <Link href="/">
-              <a>Accueil</a>
+              <a data-href="/" onClick={handleClickLink}>Accueil</a>
             </Link>
           </div>
           <div className={styles.navComponent}>
             <Link href="/cv">
-              <a>Mon CV</a>
+              <a data-href="/cv" onClick={handleClickLink}>Mon CV</a>
             </Link>
           </div>
           <div className={styles.navComponent}>
             <Link href="/creations">
-              <a>Créations</a>
+              <a data-href="/creations" onClick={handleClickLink}>Créations</a>
             </Link>
           </div>
         </div>

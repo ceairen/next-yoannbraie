@@ -1,6 +1,4 @@
-import Head from 'next/head'
 import { useEffect, useState } from 'react'
-import { observable } from 'rxjs'
 import styles from '../../styles/blocs/Hello.module.css'
 
 export default function Hello(props) {
@@ -15,7 +13,7 @@ export default function Hello(props) {
         p4: "Mon CV est également disponible via le menu.",
         p5: "Je vous souhaite une excellente visite !",
         p6: "Yoann Braie",
-    })
+    });
 
     const initWrite = (element, callback) => {
         if(element) {
@@ -33,12 +31,14 @@ export default function Hello(props) {
     const write = (element, text, index, callback) => {
         clearTimeout(writeTimeout);
         let ind = index + 1;
-        element.textContent += text[index];
+        element.textContent = element.textContent.slice(0, -1)
+        element.textContent += text[index] + '|';
         if(index < text.length -1){
             writeTimeout = setTimeout(() => {
                 write(element, text, ind, callback);
-            }, 30)
+            }, 40)
         }else{
+            element.textContent = element.textContent.slice(0, -1)
             clearTimeout(writeTimeout);
             callback();
         }
@@ -69,6 +69,7 @@ export default function Hello(props) {
                 });
             });
         });
+
         return () => {
             p1?.classList.remove('visible');
             p2?.classList.remove('visible');
