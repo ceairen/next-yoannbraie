@@ -8,6 +8,8 @@
     top: 0;
     background: rgb(0,0,0);
     background: linear-gradient(140deg, rgb(66 37 37) -15%, rgba(0,0,0,0) 50%);
+    opacity: 0;
+    animation: comeOn .5s linear 1.5s forwards;
 }
 
 .backgroundBlocFlex {
@@ -115,6 +117,15 @@
     100% {
         transform: translateY(-5vw) translateX(-8vw) rotateZ(-30deg) scale(0.6);
         opacity: .8;
+    }
+}
+
+@keyframes comeOn {
+    0%   { 
+        opacity: 0; 
+    }
+    100% { 
+        opacity: 1; 
     }
 }
 
