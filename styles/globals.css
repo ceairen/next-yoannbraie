@@ -46,3 +46,14 @@ ul {
 hr {
   border: none;
 }
+
+.timeline-observable {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity .3s, transform .3s;
+}
+
+.timeline-observable.visible {
+  transform: translateY(0px);
+  opacity: 1;
+}

@@ -8,6 +8,8 @@ export default function Timeline(props) {
 
     let api = null;
     let subscription = null
+    const threshold = 0.2
+    let observer = null
 
     const [data, setData] = useState([])
 
@@ -17,12 +19,38 @@ export default function Timeline(props) {
         });
     }
 
+    const initObservation = () => {
+        var options = {
+            root: document.querySelector('#sectionTimeline'),
+            rootMargin: '0px',
+            threshold: threshold
+        }
+        let elements = document.querySelectorAll('.timeline-observable');
+        if(elements.length > 0) {
+            observer = new IntersectionObserver(callbackObservation, options);
+            for(let i = 0; i < elements.length; i ++){
+                observer.observe(elements[i]);
+            }
+        }
+    }
+
+    const callbackObservation = (entries, observer) => {
+        entries.forEach(entry => {
+            if(entry.intersectionRatio > threshold){
+                let target = entry.target;
+                target.classList.add('visible');
+                observer.unobserve(target);
+            }
+        });
+    }
+
     useEffect(() => {
         api = new ApiService();
         observeTimelineDatas();
         api.getTimeline();
         return () => {
-            subscription.unsubscribe();
+            subscription?.unsubscribe();
+            observer?.disconnect();
         }
     }, [])
 
@@ -31,8 +59,11 @@ export default function Timeline(props) {
         <div id="timelineBloc" className={styles.timelineBloc}>
             <h1 className={globalStyles.globalh1}>Mon parcours</h1>
             {data.length > 0 &&
-                <ul className={styles.timelineBlocUl}>
+                <ul className={`${styles.timelineBlocUl}`}>
                     {data.map((value, index) => {
+                        if(data.length -1 == index){
+                            setTimeout(() => { initObservation() }, 300)
+                        }
                         return <TimelineBloc key={index} indexKey={index} data={value}/>
                     })}
                 </ul>

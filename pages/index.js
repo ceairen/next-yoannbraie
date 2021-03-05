@@ -1,11 +1,8 @@
-import Head from 'next/head'
-import { useEffect, useState } from 'react'
 import Hello from '../components/blocs/Hello'
 import Timeline from '../components/blocs/Timeline'
 import Layout from '../components/Layout'
 import Section from '../components/Section'
 import BackgroundAnimated from '../components/utils/BackgroundAnimated'
-import styles from '../styles/Home.module.css'
 
 export default function Home() {
 
@@ -15,7 +12,7 @@ export default function Home() {
         <BackgroundAnimated />
         <Hello />
       </Section>
-      <Section options={{mode: 'full', dark: true, observable: true}}>
+      <Section id="sectionTimeline" options={{mode: 'full', dark: true, observable: true}}>
         <Timeline></Timeline>
       </Section>
       {/* <Section options={{mode: 'full', lightDark: true, observable: true}}>
