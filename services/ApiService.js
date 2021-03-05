@@ -8,6 +8,10 @@ export default class ApiService  {
           timeline: {
             path: 'timeline',
             key: 'data-timeline'
+          },
+          creations: {
+            path: 'pens',
+            key: 'data-creations'
           }
       }
     }
@@ -26,23 +30,37 @@ export default class ApiService  {
         ]
     }
 
-    async getTimeline () {
-      let storageDatas = localStorage?.getItem(this.method.timeline.key);
+    async getDatasByMethod (method) {
+      let m = method;
+      let storageDatas = localStorage?.getItem(m.key);
       if(storageDatas !== undefined && storageDatas !== null) {
         let deliverData = JSON.parse(storageDatas);
         if(deliverData.savedDate.toString() !== this.getTodayDate().toString()) {
-          localStorage.removeItem(this.method.timeline.key);
+          localStorage.removeItem(m.key);
         }
-        apiServiceMessages.sendTimelineDatas({datas: deliverData.data})
+        this.sendMessage(m, deliverData);
       }else{
-        this.getDatas(this.method.timeline.path).then(data => {
+        this.getDatas(m.path).then(data => {
           let deliverData = {
             savedDate: this.getTodayDate(),
             data: data
           }
-          localStorage?.setItem(this.method.timeline.key, JSON.stringify(deliverData))
-          apiServiceMessages.sendTimelineDatas({datas: deliverData.data})
+          localStorage?.setItem(m.key, JSON.stringify(deliverData))
+          this.sendMessage(m, deliverData);
         })
+      }
+    }
+
+    sendMessage(m, deliverData) {
+      switch(m.path) {
+        case this.method.timeline.path:
+          apiServiceMessages.sendTimelineDatas({datas: deliverData.data})
+          break;
+        case this.method.creations.path:
+          apiServiceMessages.sendCreationsDatas({datas: deliverData.data})
+          break;
+        default:
+          break;
       }
     }
 
@@ -70,6 +88,7 @@ const subject = new Subject();
 
 export const apiServiceMessages = {
     sendTimelineDatas: message => subject.next({ timelineDatas: message.datas }),
+    sendCreationsDatas: message => subject.next({ creationsDatas: message.datas }),
     clearMessages: () => subject.next(),
     getMessage: () => subject.asObservable()
 };

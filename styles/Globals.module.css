@@ -2,9 +2,38 @@
 @value hrColor: #575965;
 
 .globalh1 {
-    font-size: 2rem;
-    padding: 2rem 1rem;
-    text-align: center;
+    padding: 2rem 1rem 4rem 1rem;
+	text-align: center;
+	color: transparent;
+	font-family: 'Lato', sans-serif;
+	-webkit-text-stroke: 0.05rem #cacaca;
+	font-weight: 700;
+	font-size: 2.5rem;
+	text-transform: uppercase;
+	position: relative;
+}
+
+.globalh1::before, .globalh1::after {
+	content:"";
+	position: absolute;
+	height: 1px;
+	background-color: #ff9ebf;
+}
+
+@value topBeforeSize: 5.3rem;
+@value beforeh1size: 5.5rem;
+@value afterh1size: 2rem;
+
+.globalh1::before{
+	top: topBeforeSize;
+	width: beforeh1size;
+	left: calc(50% - beforeh1size / 2);
+}
+
+.globalh1::after{
+	top: calc(topBeforeSize + 0.5rem);
+	width: afterh1size;
+	left: calc(50% - afterh1size / 2);
 }
 
 .miniSeparator, .miniSeparatorRight {

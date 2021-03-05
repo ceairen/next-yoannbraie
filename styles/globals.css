@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&family=Rokkitt:wght@300&display=swap&');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Rokkitt:wght@300&display=swap&');
 
 html,
 body {
@@ -49,11 +49,11 @@ hr {
 
 .timeline-observable {
   opacity: 0;
-  transform: translateY(100px);
-  transition: opacity .3s, transform .3s;
+  transform: translateY(100px) scale(.7);
+  transition: opacity .5s, transform .5s;
 }
 
 .timeline-observable.visible {
-  transform: translateY(0px);
+  transform: translateY(0px) scale(1);
   opacity: 1;
 }

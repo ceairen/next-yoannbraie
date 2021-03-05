@@ -15,7 +15,9 @@ export default function Timeline(props) {
 
     const observeTimelineDatas = () => {
         subscription = apiServiceMessages.getMessage().subscribe(message => {
-            setData([...message.timelineDatas])
+            if(message.timelineDatas){
+                setData([...message.timelineDatas])
+            }
         });
     }
 
@@ -47,7 +49,7 @@ export default function Timeline(props) {
     useEffect(() => {
         api = new ApiService();
         observeTimelineDatas();
-        api.getTimeline();
+        api.getDatasByMethod(api.method.timeline);
         return () => {
             subscription?.unsubscribe();
             observer?.disconnect();
