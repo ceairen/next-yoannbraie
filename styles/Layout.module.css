@@ -166,7 +166,21 @@
     width: 100vw;
     min-height: 100vh;
     transition: background-color .3s, color .3s;
-    composes: darkMode from var-filepath
+    composes: darkMode from var-filepath;
+}
+
+.footer {
+    display: flex;
+    padding: 1rem;
+    background-color: #1e1f25;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.footer label {
+    color: white;
+    padding: 10px 20px;
+    font-size: 10px;
 }
 
 @keyframes navComeOn {

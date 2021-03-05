@@ -1,0 +1,232 @@
+/* CREA BLOCK */
+
+@value sizeCreaBlock: 270px;
+@value bgCreaBlock: #1e1f25;
+@value blockTranslateX: 210px;
+@value blockRotateY: 40deg;
+@value marginSize: 32px;
+@value shadowColor: 15px 5px 20px -7px rgb(0 0 0 / 30%);
+@value blocImgSize: 130px;
+
+@value arc-blue: rgba(53, 113, 158, 1);
+@value arc-vert: #4caf50;
+@value arc-jaune: #ffeb3b;
+@value arc-rose: #E91E63;
+@value arc-orange: #f76334;
+
+.blocImg {
+	width: 100%;
+	height: blocImgSize;
+	position: relative;
+	z-index: 9999;
+}
+
+.creaBlock {
+	width: sizeCreaBlock;
+	background-color: bgCreaBlock;
+	padding: 50px 20px 20px 20px;
+	border-radius: 7px;
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+	white-space: normal;
+	vertical-align: top;
+	transition: all .3s;
+	opacity: 0;
+    
+	-webkit-box-shadow: shadowColor;
+	-moz-box-shadow: shadowColor;
+    box-shadow: shadowColor;
+    cursor: pointer;
+}
+
+.creaBlock::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 10%;
+	width: calc(sizeCreaBlock * 2);
+	height: calc(sizeCreaBlock * 2);
+	background-color: #353842;
+    transform: rotateZ(70deg);
+    z-index: -1;
+}
+
+.creaBlock > label {
+	position: absolute;
+	left: 0;
+	top: 0;
+	font-weight: bold;
+	color: white;
+	padding: 20px;
+	font-size: 8px;
+	opacity: .8;
+}
+
+.creaBlock h2 {
+	font-size: 20px;
+	width: 70%;
+	color: white;
+	font-weight: bold;
+	height: 54px;
+	display: block;
+	text-align: left;
+	overflow: hidden;
+	background-color: transparent;
+	transition: background-color .6s;
+}
+
+.creaBlock img {
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+}
+
+/* FIN CREA BLOCK */
+
+
+/* BOX 1 */
+
+.creaBlock:nth-child(1) {
+	z-index: 1;
+	transform: scale(.9);
+	animation: displayCreations .5s linear .2s forwards;
+}
+
+.creaBlock:nth-child(1):hover {
+	transform: scale(1.1);
+}
+
+.creaBlock:nth-child(1):hover ~ .creaBlock:nth-child(2) {
+	transform: scale(.83) translateX(blockTranslateX) rotateY(blockRotateY);
+}
+
+.creaBlock:nth-child(1):hover ~ .creaBlock:nth-child(3) {
+	transform: scale(.88) translateX(blockTranslateX) rotateY(blockRotateY);
+}
+
+.creaBlock:nth-child(1):hover ~ .creaBlock:nth-child(4) {
+	transform: scale(.93) translateX(blockTranslateX) rotateY(blockRotateY);
+}
+
+.creaBlock:nth-child(1):hover ~ .creaBlock:nth-child(5) {
+	transform: scale(.98) translateX(blockTranslateX) rotateY(blockRotateY);
+}
+
+/* BOX 2 */
+
+.creaBlock:nth-child(2) {
+	z-index: 2;
+	margin-left: calc(-6 * marginSize);
+	transform: scale(.94);
+	animation: displayCreations .5s linear .4s forwards;
+}
+
+.creaBlock:nth-child(2):hover {
+	transform: scale(1.1);
+}
+
+.creaBlock:nth-child(2):hover ~ .creaBlock:nth-child(3) {
+	transform: scale(.88) translateX(blockTranslateX) rotateY(blockRotateY);
+}
+
+.creaBlock:nth-child(2):hover ~ .creaBlock:nth-child(4) {
+	transform: scale(.93) translateX(blockTranslateX) rotateY(blockRotateY);
+}
+
+.creaBlock:nth-child(2):hover ~ .creaBlock:nth-child(5) {
+	transform: scale(.98) translateX(blockTranslateX) rotateY(blockRotateY);
+}
+
+/* BOX 3 */
+
+.creaBlock:nth-child(3) {
+	z-index: 3;
+	margin-left: calc(-6 * marginSize);
+	transform: scale(.98);
+	animation: displayCreations .5s linear .6s forwards;
+}
+
+.creaBlock:nth-child(3):hover ~ .creaBlock:nth-child(4) {
+	transform: scale(.93) translateX(blockTranslateX) rotateY(blockRotateY);
+}
+
+.creaBlock:nth-child(3):hover ~ .creaBlock:nth-child(5) {
+	transform: scale(.98) translateX(blockTranslateX) rotateY(blockRotateY);
+}
+
+/* BOX 4 */
+
+.creaBlock:nth-child(4) {
+	z-index: 4;
+	margin-left: calc(-6 * marginSize);
+	transform: scale(1.02);
+	animation: displayCreations .5s linear .8s forwards;
+}
+
+.creaBlock:nth-child(4):hover ~ .creaBlock:nth-child(5) {
+	transform: scale(.98) translateX(blockTranslateX) rotateY(blockRotateY);
+}
+
+/* BOX 5 */
+
+.creaBlock:nth-child(5) {
+	z-index: 5;
+	margin-left: calc(-6 * marginSize);
+	transform: scale(1.06);
+	animation: displayCreations .5s linear 1s forwards;
+}
+
+.creaBlock:nth-child(5):hover {
+	transform: scale(1.1);
+}
+
+/* SEPARATORS */
+
+.lineSeparator {
+	width: 100%;
+	background-color: var(--main-box-border-color);
+	height: 4px;
+	border-radius: 5px;
+	margin: 20px 0 40px 0;
+	opacity: .4;
+}
+
+.creaBlock:nth-child(1) .lineSeparator {
+	background-color: arc-orange;
+}
+
+.creaBlock:nth-child(2) .lineSeparator {
+	background-color: arc-rose;
+}
+
+.creaBlock:nth-child(3) .lineSeparator {
+	background-color: arc-jaune;
+}
+
+.creaBlock:nth-child(4) .lineSeparator {
+	background-color: arc-vert;
+}
+
+.creaBlock:nth-child(5) .lineSeparator {
+	background-color: arc-blue;
+}
+
+/* –––––––––––––––––––– */
+
+@keyframes displayCreations {
+    0%   { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 1; }
+  }
+
+/* –––––––––––––––––––– */
+
+
+@media only screen and (max-width: 600px) {
+    .creaBlock {
+        transform: scale(1) !important;
+        margin-left: 0 !important;
+        margin: 60px 20px; 
+    }
+}

@@ -16,7 +16,7 @@ export default function Home() {
       <Section id="sectionTimeline" options={{mode: 'full', dark: true, observable: true}}>
         <Timeline />
       </Section>
-      <Section options={{mode: 'full', lightDark: true, observable: true}}>
+      <Section options={{mode: 'full', noPaddingSide: true, lightDark: true, observable: true}}>
         <Creations />
       </Section>
     </Layout>

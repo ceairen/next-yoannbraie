@@ -42,7 +42,7 @@ export default function Layout(props) {
       <Head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="icon.svg" />
+        <link rel="icon" href="logo.svg" />
         <title>{titleApp}</title>
       </Head>
       <nav className={`${styles.nav} ${navExpanded ? styles.navExpanded : ''}`}>
@@ -66,6 +66,9 @@ export default function Layout(props) {
         <button className={`${styles.navButtonExpand} ${navExpanded ? styles.navButtonExpanded : ''}`} onClick={handleNavExpand}><span></span></button>
       </nav>
       <main className={styles.main}>{props.children}</main>
+      <footer className={styles.footer}>
+        <label>2015 -</label><img src="logo_white.svg" alt="logo"/><label>{`- ${(new Date()).getFullYear()}`}</label>
+      </footer>
     </>
   );
 }

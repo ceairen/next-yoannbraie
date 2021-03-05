@@ -22,6 +22,11 @@
     background-color: #24262D;
 }
 
+.noPaddingSide {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 .sectionFlex {
     display: flex;
     justify-content: center;
