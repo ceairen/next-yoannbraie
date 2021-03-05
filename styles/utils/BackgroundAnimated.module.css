@@ -1,0 +1,216 @@
+@value paddingLabel: .6rem;
+
+.backgroundBloc {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: rgb(0,0,0);
+    background: linear-gradient(140deg, rgb(66 37 37) -15%, rgba(0,0,0,0) 50%);
+}
+
+.backgroundBlocFlex {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.backgroundBlocFlex li {
+    width: calc(100vw / 3);
+    height: calc(100vh / 3);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.backgroundBlocFlexLabel {
+    background-color: rgba(0,0,0,.2);
+    padding: paddingLabel paddingLabel paddingLabel 2rem;
+    border-radius: 12px;
+    font-size: 12px;
+    position: relative;
+}
+
+.backgroundBlocFlexLabel::before {
+    content: '#';
+    position: absolute;
+    left: 1rem;
+    font-size: 14px;
+    top: 0.55rem;
+    font-weight: bold;
+}
+
+.backgroundBlocFlex li:nth-child(1) .backgroundBlocFlexLabel {
+    margin-top: -10vh;
+    margin-left: -14vw;
+    animation: animType_one 20s linear 0s alternate infinite;
+}
+
+.backgroundBlocFlex li:nth-child(2) .backgroundBlocFlexLabel {
+    margin-top: 10vh;
+    margin-left: 19vw;
+    animation: animType_one 12s linear 0s alternate-reverse infinite;
+}
+
+.backgroundBlocFlex li:nth-child(3) .backgroundBlocFlexLabel {
+    margin-top: -20vh;
+    margin-left: 10vw;
+    animation: animType_three 2s linear 0s infinite;
+}
+
+.backgroundBlocFlex li:nth-child(4) .backgroundBlocFlexLabel {
+    margin-top: 10vh;
+    margin-left: -3vw;
+    animation: animType_four 3s linear 0s alternate infinite;
+}
+
+.backgroundBlocFlex li:nth-child(5) .backgroundBlocFlexLabel {
+    margin-top: -50vh;
+    margin-left: -50vw;
+    animation: animType_two 2s linear 1s infinite;
+}
+
+.backgroundBlocFlex li:nth-child(6) .backgroundBlocFlexLabel {
+    margin-top: 1vh;
+    margin-left: 1vw;
+    animation: animType_two 2s linear 0s infinite;
+}
+
+.backgroundBlocFlex li:nth-child(7) .backgroundBlocFlexLabel {
+    margin-top: -1vh;
+    margin-left: -18vw;
+    animation: animType_three 1s linear 1s infinite;
+}
+
+.backgroundBlocFlex li:nth-child(8) .backgroundBlocFlexLabel {
+    margin-top: 3vh;
+    margin-left: -10vw;
+    animation: animType_two 14s cubic-bezier(.5,-.75,.7,1.6) 0s alternate infinite;
+}
+
+.backgroundBlocFlex li:nth-child(9) .backgroundBlocFlexLabel {
+    margin-top: 8vh;
+    margin-left: 10vw;
+    animation: animType_five 3s linear 0s alternate infinite;
+}
+
+@keyframes animType_one {
+    0% {
+        transform: translateY(0) translateX(0) rotateZ(0deg) scale(1);
+        opacity: 1;
+    }
+
+    25% {
+        transform: translateY(5vw) translateX(-1vw) rotateZ(30deg) scale(0.8);
+        opacity: .3;
+    }
+
+    75% {
+        transform: translateY(-10vw) translateX(10vw) rotateZ(0deg) scale(1.4);
+        opacity: .3;
+    }
+
+    100% {
+        transform: translateY(-5vw) translateX(-8vw) rotateZ(-30deg) scale(0.6);
+        opacity: .8;
+    }
+}
+
+@keyframes animType_two {
+    0%   { 
+        transform: scale(1,1) translateY(0); 
+    }
+    10%  { 
+        transform: scale(1.1,.9) translateY(0); 
+    }
+    30%  { 
+        transform: scale(.9,1.1) translateY(-50px); 
+    }
+    50%  { 
+        transform: scale(1.05,.95) translateY(0); 
+    }
+    57%  { 
+        transform: scale(1,1) translateY(-7px); 
+    }
+    64%  { 
+        transform: scale(1,1) translateY(0); 
+    }
+    100% { 
+        transform: scale(1,1) translateY(0); 
+    }
+}
+
+@keyframes animType_three {
+    0%   { 
+        transform: scale(1,1); 
+    }
+    10%  { 
+        transform: scale(1.2,.9); 
+    }
+    30%  { 
+        transform: scale(.8,1.1); 
+    }
+    50%  { 
+        transform: scale(1.05,.95); 
+    }
+    57%  { 
+        transform: scale(.9,1.1); 
+    }
+    64%  { 
+        transform: scale(1,1); 
+    }
+    100% { 
+        transform: scale(1,1); 
+    }
+}
+
+@keyframes animType_four {
+    0%   { 
+        transform: scale(1,1) translateY(0) rotateZ(0deg); 
+    }
+    10%  { 
+        transform: scale(1.1,.9) translateY(0) rotateZ(0deg); 
+    }
+    30%  { 
+        transform: scale(.9,1.1) translateY(-100px) rotateZ(360deg); 
+    }
+    50%  { 
+        transform: scale(1.05,.95) translateY(0) rotateZ(720deg); 
+    }
+    57%  { 
+        transform: scale(1,1) translateY(-7px) rotateZ(720deg); 
+    }
+    64%  { 
+        transform: scale(1,1) translateY(0) rotateZ(720deg); 
+    }
+    100% { 
+        transform: scale(1,1) translateY(0) rotateZ(720deg); 
+    }
+}
+
+@keyframes animType_five {
+    0%   { 
+        transform: scale(1,1) translateY(0) translateX(0px) rotateZ(0deg); 
+    }
+    10%  { 
+        transform: scale(1.1,.9) translateY(0) translateX(100px) rotateZ(0deg); 
+    }
+    30%  { 
+        transform: scale(.9,1.1) translateY(-100px) translateX(0px) rotateZ(360deg); 
+    }
+    50%  { 
+        transform: scale(1.05,.95) translateY(0) translateX(-100px) rotateZ(720deg); 
+    }
+    57%  { 
+        transform: scale(1,1) translateY(-7px) translateX(-100px) rotateZ(720deg); 
+    }
+    64%  { 
+        transform: scale(1,1) translateY(0) translateX(-50px) rotateZ(720deg); 
+    }
+    100% { 
+        transform: scale(1,1) translateY(0) translateX(0px) rotateZ(720deg); 
+    }
+}
+

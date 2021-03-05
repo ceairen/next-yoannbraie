@@ -1,0 +1,118 @@
+@value buttonSize: 10px;
+
+.helloBloc {
+    width: 500px;
+    height: 275px;
+    background-color: #131313;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 49px 49px 49px 16px rgb(0 0 0 / 32%);
+    animation: blockComeOn .4s linear .8s forwards;
+    transform: scale(.5);
+    opacity: 0;
+}
+
+
+.helloP {
+  font-family: 'Rokkitt', serif;
+  margin-bottom: 15px;
+  opacity: 0;
+}
+
+.helloP b {
+    color: #2fab35;
+    font-size: 16px;
+}
+
+.helloBlocContent {
+    padding: 10px;
+}
+
+.helloBlocHeader {
+    background-color: #1e1f25;
+    opacity: 0;
+    animation: headerComeOn .3s linear 1.1s forwards;
+}
+
+.helloBlocHeader {
+    text-align: center;
+    padding: .5rem;
+}
+
+.helloBlocHeaderButtons, .helloBlocHeaderButtons::before, .helloBlocHeaderButtons::after {
+    width: buttonSize;
+    height: buttonSize;
+    border-radius: 50%;
+}
+
+.helloBlocHeaderButtons {
+    float: left;
+    background-color: #03a9f4;
+    margin: 2px 2px 0 0;
+    position: relative;
+}
+
+.helloBlocHeaderButtons::before, .helloBlocHeaderButtons::after {
+    content: '';
+    position: absolute;
+    top: 0;
+}
+
+.helloBlocHeaderButtons::before {
+    left: calc(buttonSize * 2);
+    background-color: white;
+}
+
+.helloBlocHeaderButtons::after {
+    left: calc(buttonSize * 4);
+    background-color: #ff5e2b;
+}
+
+.helloBlocHeader h1 {
+    font-size: 14px;
+}
+
+@media (max-width: 500px) {
+    .helloBloc{
+        width: 100%;
+        height: inherit;
+    }
+
+    .navComponent a {
+        font-size: 1.4rem;
+    }    
+}
+
+@keyframes blockComeOn {
+    0% {
+        transform: scale(.5);
+        opacity: 0;
+    }
+
+    70% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+
+    90% {
+        transform: scale(.9);
+        opacity: 1;
+    }
+    
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes headerComeOn {
+    0% {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}

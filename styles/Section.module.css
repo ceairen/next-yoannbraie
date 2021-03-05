@@ -1,0 +1,44 @@
+.section {
+    padding: 2rem;
+    opacity: 0;
+    animation: sectionComeOn .3s linear .3s forwards;
+    transform: translateY(15px);
+}
+
+.sectionFull {
+    min-height: 100vh;
+}
+
+.sectionSticky {
+    position: sticky;
+    top: 0px;
+}
+
+.sectionDark {
+    background-color: #1e1f25;
+}
+
+.sectionFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@keyframes sectionComeOn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@media (max-width: 450px) {
+    .section {
+        padding: 1rem;
+    }
+}

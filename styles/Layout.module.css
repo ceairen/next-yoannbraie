@@ -12,7 +12,7 @@
     top: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, .8);
+    background-color: rgba(0, 0, 0, .9);
     transform: translateY(-100vh);
     transition: transform 1s cubicAnim;
     opacity: 0;
@@ -168,25 +168,6 @@
     composes: darkMode from var-filepath
 }
 
-.section {
-    padding: 2rem;
-    opacity: 0;
-    animation: sectionComeOn .3s linear .3s forwards;
-    transform: translateY(15px);
-}
-
-@keyframes sectionComeOn {
-    0% {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0px);
-    }
-}
-
 @keyframes navComeOn {
     0% {
         opacity: 0;
@@ -197,16 +178,12 @@
     }
 }
 
-@media (max-width: 450px) {
+/* @media (max-width: 450px) {
     .main {
         padding: 3rem 0;
-    }
-
-    .section {
-        padding: 1rem;
     }
 
     .navComponent a {
         font-size: 1.4rem;
     }    
-}
+} */
