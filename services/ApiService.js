@@ -12,6 +12,14 @@ export default class ApiService  {
           creations: {
             path: 'pens',
             key: 'data-creations'
+          },
+          cv: {
+            path: 'cv',
+            key: 'data-cv'
+          },
+          competences: {
+            path: 'competences',
+            key: 'data-competences'
           }
       }
     }
@@ -58,6 +66,11 @@ export default class ApiService  {
           break;
         case this.method.creations.path:
           apiServiceMessages.sendCreationsDatas({datas: deliverData.data})
+        case this.method.cv.path:
+          apiServiceMessages.sendCvDatas({datas: deliverData.data})
+          break;
+        case this.method.competences.path:
+          apiServiceMessages.sendCompetencesDatas({datas: deliverData.data})
           break;
         default:
           break;
@@ -89,6 +102,8 @@ const subject = new Subject();
 export const apiServiceMessages = {
     sendTimelineDatas: message => subject.next({ timelineDatas: message.datas }),
     sendCreationsDatas: message => subject.next({ creationsDatas: message.datas }),
+    sendCvDatas: message => subject.next({ cvDatas: message.datas }),
+    sendCompetencesDatas: message => subject.next({ competencesData: message.datas }),
     clearMessages: () => subject.next(),
     getMessage: () => subject.asObservable()
 };

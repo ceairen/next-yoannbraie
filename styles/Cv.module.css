@@ -1,3 +1,72 @@
+@value cvWidth: 781px;
+@value cvSideWidth: calc(cvWidth / 4);
+@value cvShadow: 15px 16px 71px 3px rgb(0 0 0 / 75%);
+
 .cvBlock {
-    background-color: red;
+	position: relative;
+	z-index: 999;
+	margin: auto;
+    width: cvWidth;
+    background-color: #1E1F25;
+	-webkit-box-shadow: cvShadow;
+	-moz-box-shadow: cvShadow;
+	box-shadow: cvShadow;
 }
+
+.cvBlock::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: cvSideWidth;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #131313;
+}
+
+.cvMain {
+    display: flex;
+    flex-direction: row;
+}
+
+.cvBlockSidebar {
+	width: cvSideWidth;
+}
+
+.cvBlockContent {
+	width: calc(cvWidth - cvSideWidth);
+}
+
+
+/**/
+
+
+@media only screen and (max-width: 768px) {
+	.cvBlock {
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 700px) {
+    
+}
+
+@media only screen and (max-width: 600px) {
+    
+}
+
+@media only screen and (max-width: 560px) {
+    .cvBlockSidebar{
+        display: none;
+    }
+
+    .cvBlock::before {
+        width: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: inherit;
+        height: 85px;
+    }
+}
+
