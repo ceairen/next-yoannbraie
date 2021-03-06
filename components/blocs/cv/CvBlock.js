@@ -6,9 +6,7 @@ import CvBlockSidebar from './CvBlockSidebar';
 export default function CvBlock(props) {
     
     let data = props.cv;
-
-    console.log('Get Props', data)
-
+    
     return (
         <div className={styles.cvBlock}>
             <div className={styles.cvHeader}>
@@ -19,7 +17,7 @@ export default function CvBlock(props) {
                     <CvBlockSidebar data={data.competences} />
                 </div>
                 <div className={styles.cvMainContent}>
-                    <CvBlockContent data={data.experiences} />
+                    <CvBlockContent dataFormations={data.content.formations} dataExperiences={data.content.experiences} />
                 </div>
             </div>
         </div>

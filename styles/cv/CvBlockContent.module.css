@@ -1,0 +1,66 @@
+@value subSideSize: 140px;
+@value blueColor: #6095d2;
+@value greyColor: #929292;
+@value borderColor: #131313;
+@value imgSize: 38px;
+
+.cvBlockContent {
+}
+
+.cvContentUl li:not(:first-child) {
+    border-top: 1px dashed borderColor;
+}
+
+.cvBlockContentSub {
+    display: flex;
+    padding: 20px 0;
+    justify-content: start;
+}
+
+.cvBlockContentSubSide {
+	min-width: subSideSize;
+	max-width: subSideSize;
+	font-size: 10px;
+	color: blueColor;
+	font-style: oblique;
+	padding: 5px 0;
+}
+
+.cvBlockContentSubMain {
+    display: flex;
+}
+
+.cvBlockContentSubMainImg {
+    width: imgSize;
+    height: imgSize;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.cvBlockContentSubMainImg img {
+    width: 100%;
+    height: 100%;
+}
+
+.cvBlockContentSubMainText {
+    width: calc(100% - imgSize);
+    padding: 0 10px;
+    font-size: 14px;
+}
+
+.cvBlockContentSubMainText label {
+    display: block;
+    padding-top: 2px;
+}
+
+.cvBlockContentSubMainText b {
+    color: greyColor;
+    font-weight: 300;
+}
+
+.cvBlockContentSubMainText p {
+    color: white;
+    font-weight: 300;
+    font-size: 13px;
+    padding: 10px 0 0 0;
+}

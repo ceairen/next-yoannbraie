@@ -12,7 +12,7 @@ export default function Cv() {
     let elementPerPage = 5
 
     const [cvDatas, setCvDatas] = useState(null)
-    const [experiencesData, setExperiencesData] = useState(null)
+    const [contentData, setContentData] = useState({content:{experiences: null, formations: null}})
     const [competencesData, setCompetencesData] = useState(null)
 
     const observeCvData = () => {
@@ -24,7 +24,15 @@ export default function Cv() {
             setCompetencesData(message.competencesData)
           }
           if(message.timelineDatas){
-            setExperiencesData(message.timelineDatas)
+            let cData = message.timelineDatas.reduce((acc, cur) => {
+              if(cur.contenu.type === "entreprise") {
+                acc.experiences.push(cur)
+              }else{
+                acc.formations.push(cur)
+              }
+              return acc;
+            }, {formations: [], experiences: []})
+            setContentData(cData)
           }
       });
     }
@@ -44,7 +52,7 @@ export default function Cv() {
     <Layout titlePage="Mon CV">
       <Section>
         <h1 className={globalStyles.globalh1}>Mon CV</h1>
-        <CvBlock cv={{global:cvDatas, experiences:experiencesData, competences:competencesData }} />
+        <CvBlock cv={{global:cvDatas, content:contentData, competences:competencesData }} />
       </Section>
     </Layout>
   )
