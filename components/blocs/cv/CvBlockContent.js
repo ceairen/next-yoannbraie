@@ -1,5 +1,5 @@
-import styles from '../../../styles/Cv.module.css'
-import stylesBlock from '../../../styles/cv/CvBlockContent.module.css'
+import styles from 'styles/Cv.module.css'
+import stylesBlock from 'styles/cv/CvBlockContent.module.css'
 
 export default function CvBlockContent(props) {
     

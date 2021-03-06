@@ -1,5 +1,5 @@
-import styles from '../../../styles/timeline/Timeline.module.css'
-import globalStyles from '../../../styles/Globals.module.css'
+import styles from 'styles/timeline/Timeline.module.css'
+import globalStyles from 'styles/Globals.module.css'
 
 export default function TimelineBloc(props) {
 

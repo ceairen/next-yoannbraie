@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import styles from '../../styles/encapsulation/Section.module.css'
+import styles from 'styles/encapsulation/Section.module.css'
 
 export default function Section(props) {
 

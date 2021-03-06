@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import styles from '../../styles/utils/BackgroundAnimated.module.css'
-import ApiService from '../../services/ApiService'
+import styles from 'styles/utils/BackgroundAnimated.module.css'
+import ApiService from 'services/ApiService'
 
 export default function BackgroundAnimated(props) {
 

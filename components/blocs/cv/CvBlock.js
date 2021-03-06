@@ -1,4 +1,4 @@
-import styles from '../../../styles/Cv.module.css'
+import styles from 'styles/Cv.module.css'
 import CvBlockContent from './CvBlockContent';
 import CvBlockHeader from './CvBlockHeader';
 import CvBlockSidebar from './CvBlockSidebar';

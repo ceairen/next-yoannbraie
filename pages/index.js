@@ -1,9 +1,9 @@
-import Hello from '../components/blocs/hello/Hello'
-import Timeline from '../components/blocs/timeline/Timeline'
-import Creations from '../components/blocs/creations/Creations'
-import Layout from '../components/encapsulation/Layout'
-import Section from '../components/encapsulation/Section'
-import BackgroundAnimated from '../components/utils/BackgroundAnimated'
+import Hello from 'components/blocs/hello/Hello'
+import Timeline from 'components/blocs/timeline/Timeline'
+import Creations from 'components/blocs/creations/Creations'
+import Layout from 'components/encapsulation/Layout'
+import Section from 'components/encapsulation/Section'
+import BackgroundAnimated from 'components/utils/BackgroundAnimated'
 
 export default function Home() {
 

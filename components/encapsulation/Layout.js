@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import styles from "../../styles/encapsulation/Layout.module.css"
+import styles from "styles/encapsulation/Layout.module.css"
 import { useEffect, useState } from "react";
 
 export default function Layout(props) {

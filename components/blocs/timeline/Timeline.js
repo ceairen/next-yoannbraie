@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import ApiService, {apiServiceMessages} from '../../../services/ApiService';
-import styles from '../../../styles/timeline/Timeline.module.css';
-import globalStyles from '../../../styles/Globals.module.css';
+import ApiService, {apiServiceMessages} from 'services/ApiService';
+import styles from 'styles/timeline/Timeline.module.css';
+import globalStyles from 'styles/Globals.module.css';
 import TimelineBloc from './TimelineBloc';
 
 export default function Timeline(props) {

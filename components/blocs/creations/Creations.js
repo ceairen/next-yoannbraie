@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
-import styles from '../../../styles/creations/Creations.module.css';
-import globalStyles from '../../../styles/Globals.module.css';
+import styles from 'styles/creations/Creations.module.css';
+import globalStyles from 'styles/Globals.module.css';
 import CreationsBloc from './CreationsBlock';
 import Link from "next/link";
-import ApiService, {apiServiceMessages} from '../../../services/ApiService';
+import ApiService, {apiServiceMessages} from 'services/ApiService';
 
 export default function Creations(props) {
 
