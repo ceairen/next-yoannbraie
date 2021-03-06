@@ -1,6 +1,4 @@
-import styles from '../../styles/blocs/Creations.module.css'
-import stylesBlock from '../../styles/blocs/CreationsBlock.module.css'
-import globalStyles from '../../styles/Globals.module.css'
+import stylesBlock from '../../../styles/creations/CreationsBlock.module.css'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 

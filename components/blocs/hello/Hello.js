@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import styles from '../../styles/blocs/Hello.module.css'
+import styles from '../../../styles/hello/Hello.module.css'
 
 export default function Hello(props) {
 

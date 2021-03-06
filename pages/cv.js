@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import CvBlock from '../components/blocs/CvBlock';
-import Layout from '../components/Layout'
-import Section from '../components/Section'
+import CvBlock from '../components/blocs/cv/CvBlock';
+import Layout from '../components/encapsulation/Layout'
+import Section from '../components/encapsulation/Section'
 import ApiService, { apiServiceMessages } from '../services/ApiService';
 import globalStyles from '../styles/Globals.module.css';
 

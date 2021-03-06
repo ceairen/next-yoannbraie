@@ -1,6 +1,11 @@
 @value cvWidth: 781px;
 @value cvSideWidth: calc(cvWidth / 4);
-@value cvShadow: 15px 16px 71px 3px rgb(0 0 0 / 75%);
+@value cvShadow: 15px 5px 20px -7px rgb(0 0 0 / 30%);
+
+@value cvHeader3Size: 16px;
+@value cvHeader4Size: 14px;
+
+@value sidecontPadding: 20px;
 
 .cvBlock {
 	position: relative;
@@ -10,7 +15,9 @@
     background-color: #1E1F25;
 	-webkit-box-shadow: cvShadow;
 	-moz-box-shadow: cvShadow;
-	box-shadow: cvShadow;
+    box-shadow: cvShadow;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .cvBlock::before {
@@ -29,6 +36,10 @@
     flex-direction: row;
 }
 
+.cvBlockSidebar, .cvBlockContent {
+    padding: sidecontPadding;
+}
+
 .cvBlockSidebar {
 	width: cvSideWidth;
 }
@@ -37,8 +48,29 @@
 	width: calc(cvWidth - cvSideWidth);
 }
 
+.cvHeader3 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: cvHeader3Size;
+    margin-bottom: 20px;
+    position: relative;
+}
 
-/**/
+.cvHeader3::after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    left: 0;
+    width: 20px;
+    top: 130%;
+    background-color: #ff9ebf;
+}
+
+.cvHeader4 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: cvHeader4Size;
+}
 
 
 @media only screen and (max-width: 768px) {
@@ -56,6 +88,16 @@
 }
 
 @media only screen and (max-width: 560px) {
+
+    .cvBlock {
+        display: block;
+    }
+
+    .cvBlockContent {
+        display: block;
+        width: 100%;
+    }
+
     .cvBlockSidebar{
         display: none;
     }
@@ -66,7 +108,7 @@
         left: 0;
         right: 0;
         bottom: inherit;
-        height: 85px;
+        height: 250px;
     }
 }
 

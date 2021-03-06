@@ -1,4 +1,4 @@
-@value var-filepath: "./variables/Variables.module.css";
+@value var-filepath: "../variables/Variables.module.css";
 @value buttonSize: 60px;
 @value navColor: #131313;
 @value cubicAnim: cubic-bezier(.5,-.75,.7,1.6);

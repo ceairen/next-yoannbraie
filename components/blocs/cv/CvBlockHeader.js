@@ -1,4 +1,4 @@
-import styles from '../../styles/blocs/CvBlockHeader.module.css'
+import styles from '../../../styles/cv/CvBlockHeader.module.css'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 

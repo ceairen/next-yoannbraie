@@ -1,6 +1,7 @@
 @value paddingHeaderSide: 110px;
 @value paddingHeader: 30px paddingHeaderSide;
 @value paddingHeaderMiddle: 30px 25px;
+@value paddingHeaderLittle: 30px 15px 15px 15px;
 @value imgSize: 170px;
 @value imgSizeMiddle: 140px;
 
@@ -72,6 +73,7 @@
 @media only screen and (max-width: 560px) {
     .cvBlockHeader {
         display: block;
+        padding: paddingHeaderLittle;
     }
 	.headerImg {
 		margin: auto;

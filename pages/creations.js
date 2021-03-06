@@ -1,5 +1,5 @@
-import Layout from '../components/Layout'
-import Section from '../components/Section'
+import Layout from '../components/encapsulation/Layout'
+import Section from '../components/encapsulation/Section'
 import styles from '../styles/Creations.module.css'
 
 export default function Apropos() {
