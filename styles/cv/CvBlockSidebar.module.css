@@ -15,5 +15,5 @@
 
 .competenceBlockList li::before {
     content: "> ";
-    color: #6095d2;
+    color: #00bcd4;
 }

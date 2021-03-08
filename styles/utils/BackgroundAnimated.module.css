@@ -7,7 +7,7 @@
     bottom: 0;
     top: 0;
     background: rgb(0,0,0);
-    background: linear-gradient(140deg, rgb(66 37 37) -15%, rgba(0,0,0,0) 50%);
+    background: linear-gradient(140deg, #00bcd4 -75%, rgba(0,0,0,0) 55%);
     opacity: 0;
     animation: comeOn .5s linear 1.5s forwards;
     z-index: -1;

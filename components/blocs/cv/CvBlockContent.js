@@ -1,7 +1,6 @@
 import styles from 'styles/Cv.module.css'
 import stylesBlock from 'styles/cv/CvBlockContent.module.css'
-import CvBlockContentExperiences from './CvBlockContentExperiences';
-import CvBlockContentFormations from './CvBlockContentFormations';
+import CvBlockContentReusable from './CvBlockContentReusable';
 
 export default function CvBlockContent(props) {
     
@@ -11,9 +10,9 @@ export default function CvBlockContent(props) {
     return (
         <div className={styles.cvBlockContent}>
             <h3 className={styles.cvHeader3}>Formations</h3>
-            <CvBlockContentFormations data={dataFormations}/>
+            <CvBlockContentReusable data={dataFormations}/>
             <h3 className={styles.cvHeader3}>Expériences</h3>
-            <CvBlockContentExperiences data={dataExperiences}/>
+            <CvBlockContentReusable data={dataExperiences}/>
         </div>
     )
 }

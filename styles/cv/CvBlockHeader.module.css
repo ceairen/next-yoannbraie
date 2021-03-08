@@ -5,7 +5,7 @@
 @value imgSize: 170px;
 @value imgSizeMiddle: 140px;
 
-@value h1Color: #6095d2;
+@value h1Color: #00bcd4;
 @value h1FontSize: 60px;
 @value h1FontSizeMiddle: 45px;
 @value h1FontSizeLittle: 35px;
@@ -27,7 +27,7 @@
 	height: imgSize;
 	border-radius: 50%;
 	overflow: hidden;
-	border: 8px solid white;
+	border: 2px solid white;
 }
 
 .headerImg img { width: 100%; }

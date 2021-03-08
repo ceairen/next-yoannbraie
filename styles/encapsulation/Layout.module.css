@@ -133,7 +133,8 @@
 .navComponent a::before, .navComponent a::after {
     content:'';
     position: absolute;
-    background-color: #545454;
+    background-color: #00bcd4;
+    opacity: .5;
     transition: transform .3s;
     transform: scale(0);
 }

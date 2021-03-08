@@ -1,29 +1,47 @@
 @value subSideSize: 140px;
-@value blueColor: #6095d2;
+@value subSideSizeLittle: 70px;
+@value blueColor: #00bcd4;
 @value greyColor: #929292;
 @value borderColor: #131313;
 @value imgSize: 38px;
+@value h4FontSize: 14px;
+@value missionPadding: 10px;
 
-.cvBlockContent {
+.headerH4 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+	color: greyColor;
+    font-size: h4FontSize;
+    margin: 5px 0;
 }
 
-.cvContentUl li:not(:first-child) {
+.cvContentUl > li:not(:first-child) {
     border-top: 1px dashed borderColor;
 }
 
 .cvBlockContentSub {
     display: flex;
     padding: 20px 0;
-    justify-content: start;
+    position: relative;
 }
 
 .cvBlockContentSubSide {
-	min-width: subSideSize;
-	max-width: subSideSize;
+	width: subSideSize;
 	font-size: 10px;
-	color: blueColor;
+	color: greyColor;
 	font-style: oblique;
 	padding: 5px 0;
+}
+
+.cvBlockContentSubContent {
+    width: calc(100% - subSideSize);
+}
+
+.cvBlockContentSubContent p {
+    color: white;
+    font-weight: 300;
+    font-size: 13px;
+    padding: 10px 0 0 0;
 }
 
 .cvBlockContentSubMain {
@@ -58,9 +76,90 @@
     font-weight: 300;
 }
 
-.cvBlockContentSubMainText p {
+.cvMissions {
+    display: block;
+    width: 100%;
+}
+
+.cvMission {
+    background-color: #2d2f38;
+    border-left: 1px solid greyColor;
+    margin: 15px 0;
+    padding: missionPadding;
+    width: 100%;
+}
+
+.cvMission > h5 {
+    color: blueColor;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.cvMission > label {
+    color: greyColor;
+    font-size: 10px;
+    font-style: italic;
+}
+
+.cvMission > p {
     color: white;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.formationsUl {
+    margin: 10px 0;
+}
+
+.formationsUl > li {
+    color: greyColor;
     font-weight: 300;
-    font-size: 13px;
-    padding: 10px 0 0 0;
+    font-size: 14px;
+}
+
+.formationsUl > li::before {
+    content: "> ";
+    color: blueColor;
+    font-weight: 300;
+}
+
+.evtTechUl {
+    display: flex;
+    margin: 10px 0 0 0;
+    flex-wrap: wrap;
+}
+
+.evtTechUl > li {
+    color: white;
+    background-color: #1E1F25;
+    font-weight: 300;
+    font-size: 11px;
+    margin: 5px 5px 0px 0;
+    padding: 3px 5px;
+    border-radius: 3px;
+}
+
+.evtTechUl > li::before {
+    content: "# ";
+    color: blueColor;
+    font-weight: 400;
+}
+
+@media only screen and (max-width: 560px) {
+    .cvBlockContentSubContent {
+        width: calc(100%);
+    }
+
+    .cvBlockContentSub{
+        padding-top: 40px;
+    }
+    
+    .cvBlockContentSubSide {
+        position: absolute;
+        top: 6px;
+        right: 0;
+        text-align: right;
+        font-size: 10px;
+    }
 }
