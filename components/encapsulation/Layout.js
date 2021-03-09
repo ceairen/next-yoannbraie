@@ -1,11 +1,13 @@
 import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from 'next/router'
 import styles from "styles/encapsulation/Layout.module.css"
 import { useEffect, useState } from "react";
 
 export default function Layout(props) {
 
   let titleSuffix = "yoannbraie.fr";
+  const router = useRouter()
 
   const [titleApp, setTitleApp] = useState("");
   const [navExpanded, setNavExpanded] = useState(false);
@@ -33,8 +35,8 @@ export default function Layout(props) {
     let link = e.target.getAttribute('data-href');
     setNavExpanded(navExpanded => false);
     setTimeout(() => {
-      document.location.href = link;
-    }, 600)
+      router.push(link)
+    }, 1000)
   }
 
   return (
