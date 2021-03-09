@@ -1,6 +1,28 @@
 @value hrBulleSize: 5px;
 @value hrColor: #575965;
 
+.notfound {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	flex-wrap: wrap;
+	flex-direction: column;
+}
+
+.notfound h1, .notfound h2 {
+	color: lightgray;
+}
+
+.notfound h1 {
+	font-size: 40px;
+}
+
+.notfound h2 {
+	font-size: 20px;
+}
+
 .globalButtonLink {
 	font-family: 'Lato', sans-serif;
 	color: white;

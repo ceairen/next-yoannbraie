@@ -8,6 +8,7 @@ export default function Section(props) {
   const [observable, setObservable] = useState('intersec-obs')
   const [display, setDisplay] = useState('')
   const [noPaddingSide, setNoPaddingSide] = useState('')
+  const [noPaddingFull, setNoPaddingFull] = useState('')
 
   useEffect(() => {
     let options = props.options ?? {};
@@ -26,6 +27,9 @@ export default function Section(props) {
     if(options.noPaddingSide && options.noPaddingSide == true) {
       setNoPaddingSide(styles.noPaddingSide)
     }
+    if(options.noPaddingFull && options.noPaddingFull == true) {
+      setNoPaddingFull(styles.noPaddingFull)
+    }
     if(options.display && options.display == 'flex') {
       setDisplay(styles.sectionFlex)
     }
@@ -35,6 +39,6 @@ export default function Section(props) {
   })
 
   return (
-    <section className={`${styles.section} ${noPaddingSide} ${observable} ${display} ${mode} ${position}`}>{props.children}</section>
+    <section className={`${styles.section} ${noPaddingSide} ${noPaddingFull} ${observable} ${display} ${mode} ${position}`}>{props.children}</section>
   )
 }

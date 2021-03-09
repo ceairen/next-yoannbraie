@@ -27,6 +27,10 @@
     padding-right: 0;
 }
 
+.noPaddingFull {
+    padding: 0;
+}
+
 .sectionFlex {
     display: flex;
     justify-content: center;

@@ -11,13 +11,31 @@ export default function BackgroundAnimated(props) {
     const initBackground = () => {
         let keywords = api.getKeywords();
         setKeywords([...keywords]);
-        
+    }
+
+    const initBackground404 = () => {
+        setKeywords([
+            '404',
+            '404',
+            '404',
+            '404',
+            '404',
+            '404',
+            '404',
+            '404',
+            '404'
+        ])
     }
 
     useEffect(() => {
+        let options = props.options ?? {};
         api = new ApiService();
-
-        initBackground();
+        
+        if(options.mode && options.mode.toString() == "404") {
+            initBackground404();
+        }else{
+            initBackground();
+        }
         
         return () => {
             api = null;

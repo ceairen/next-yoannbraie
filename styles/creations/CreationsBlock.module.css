@@ -39,6 +39,10 @@
     cursor: pointer;
 }
 
+.creaBlock:not(.creaBlockPrez):hover {
+	transform: scale(1);
+}
+
 .creaBlock::after {
 	content: "";
 	position: absolute;
