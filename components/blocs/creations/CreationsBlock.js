@@ -1,6 +1,5 @@
+import Link from 'next/link';
 import stylesBlock from 'styles/creations/CreationsBlock.module.css'
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
 
 export default function CreationsBloc(props) {
 
@@ -11,11 +10,15 @@ export default function CreationsBloc(props) {
         <>
             {data !== null &&
                 <li className={stylesBlock.creaBlock}>
-                    <h2>{data.title}</h2>
-                    <div className={stylesBlock.lineSeparator}></div>
-                    <div className={stylesBlock.blocImg}>
-                        <LazyLoadImage alt="preview" effect="blur" src={data.view} />
-                    </div>
+                    <Link href={`https://codepen.io/yoann-b/pen/${data.id}`}>
+                        <a target="__blank">
+                            <h2>{data.title}</h2>
+                            <div className={stylesBlock.lineSeparator}></div>
+                            <div className={stylesBlock.blocImg}>
+                                <img alt="preview" src={data.view} />
+                            </div>
+                        </a>
+                    </Link>
                 </li>
             }
         </>
