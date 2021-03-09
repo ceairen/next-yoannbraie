@@ -9,6 +9,58 @@
     flex-direction: row;
 }
 
+.filtersBlocUl {
+
+}
+
+.filtersBlocUl > li {
+    
+}
+
+.filtersBlocUl > li > label {
+    cursor: pointer;
+    position: relative;
+    color: grey;
+    display: inline-block;
+    transform: translateX(-20px);
+    font-size: 14px;
+}
+
+.filtersBlocUl > li > input {
+    opacity: 0;
+}
+
+.filtersBlocUl > li > label::before, .filtersBlocUl > li > label {
+    font-weight: 300;
+}
+
+.filtersBlocUl > li > label::before {
+    content:attr(data-text);
+    position: absolute;
+    color: white;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0%;
+    overflow: hidden;
+    transition: width .3s;
+}
+
+.filtersBlocUl > li > label::after {
+    content:"(" attr(data-occ) ")";
+    position: absolute;
+    color: white;
+    left: 111%;
+    top: 4px;
+    bottom: 0;
+    overflow: hidden;
+    font-size: 8px;
+}
+
+.filtersBlocUl > li > input:checked ~ label::before {
+    width: 100%;
+}
+
 .creationsFlex {
     display: flex;
     width: flexWidth;
@@ -42,6 +94,10 @@
     background-color: #00bcd4;
 }
 
+.displayFilters {
+    display: none;
+}
+
 @media (max-width: flexWidth) {
     .creationsFlex {
         width: flexWidthMiddle;
@@ -54,6 +110,41 @@
 }
 
 @media (max-width: 750px) {
+
+    .filtersBlocUl {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .displayFilters {
+        display: block;
+        position: absolute;
+        right: 10px;
+        top: 13px;
+        z-index: 99;
+        font-size: 30px;
+        background-color: transparent;
+        color: white;
+        color: lightgray;
+    }
+
+    .creationsFilters {
+        height: 60px;
+        overflow: hidden;
+        transition: height .3s;
+    }
+
+    .creationsFilters.filtersDisplayed {
+        height: 100%;
+    }
+
+    .filtersBlocUl > li {
+        margin: 10px;
+    }
+
     .creationsFlex {
         width: 100%;
         flex-wrap: wrap;
@@ -64,6 +155,7 @@
         background-color: #1e1f25;
         margin: auto;
         border-radius: 10px;
+        position: relative;
     }
 
     .creationsContent {

@@ -4,7 +4,7 @@ import stylesBlock from 'styles/creations/CreationsBlock.module.css'
 export default function CreationsBloc(props) {
 
     let data = props.data;
-    data.view = props.baseUrl.base_url.replace('{penId}', data.id);
+    data.view = props.baseUrl.base_url.replace('{penId}', data.id) + '/:SameSite=None';
 
     return (
         <>
