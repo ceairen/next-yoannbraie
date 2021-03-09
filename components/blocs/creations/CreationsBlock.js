@@ -9,7 +9,7 @@ export default function CreationsBloc(props) {
     return (
         <>
             {data !== null &&
-                <li className={stylesBlock.creaBlock}>
+                <li className={`${stylesBlock.creaBlock} ${props.prezMode ? stylesBlock.creaBlockPrez : ''}`}>
                     <Link href={`https://codepen.io/yoann-b/pen/${data.id}`}>
                         <a target="__blank">
                             <h2>{data.title}</h2>

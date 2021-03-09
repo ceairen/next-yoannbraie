@@ -28,7 +28,6 @@ export default function Creations(props) {
     const displayDataPaginated = (data, start) => {
         let paginatedData = data.slice(start, start + elementPerPage)
         setDisplayedData(displayedData => [...paginatedData])
-        console.log(paginatedData)
     }
 
     useEffect(() => {
@@ -44,10 +43,10 @@ export default function Creations(props) {
     return (
         <div id="creationsBloc" className={styles.creationsBloc}>
             <h1 className={globalStyles.globalh1}>Mes créations</h1>
-            {data.length > 0 &&
+            {displayedData.length > 0 &&
                 <ul className={`${styles.creationsBlocUl}`}>
                     {displayedData.reverse().map((value, index) => {
-                        return <CreationsBloc baseUrl={baseUrl} key={index} data={value}/>
+                        return <CreationsBloc prezMode={true} baseUrl={baseUrl} key={index} data={value}/>
                     })}
                 </ul>
             }
