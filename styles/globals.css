@@ -49,9 +49,11 @@ hr {
 
 .timeline-observable {
   opacity: 0;
-  transition: opacity .5s;
+  transition: opacity .5s .2s, transform .5s .2s;
+  transform: scale(.5);
 }
 
 .timeline-observable.visible {
   opacity: 1;
+  transform: scale(1);
 }

@@ -76,7 +76,8 @@ export default function Creations() {
     setDisplayedData(displayedData => dataToDisplay)
   }
 
-  const handleToggleFilters = () => {
+  const handleToggleFilters = (e) => {
+    e.preventDefault();
     let fd = filtersDisplayed
     setFiltersDisplayed(!fd)
   }
