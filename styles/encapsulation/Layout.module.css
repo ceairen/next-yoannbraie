@@ -188,7 +188,10 @@
         opacity: 0;
         height: 0vh;
     }
-
+    90% {
+        opacity: 0;
+        height: 90vh;
+    }
     100% {
         opacity: 1;
         height: 100vh;

@@ -47,56 +47,56 @@
 }
 
 .backgroundBlocFlex li:nth-child(1) .backgroundBlocFlexLabel {
-    margin-top: -10vh;
-    margin-left: -14vw;
+    margin-top: -100px;
+    margin-left: -140px;
     animation: animType_one 20s linear 0s alternate infinite;
 }
 
 .backgroundBlocFlex li:nth-child(2) .backgroundBlocFlexLabel {
-    margin-top: 10vh;
-    margin-left: 19vw;
+    margin-top: 100px;
+    margin-left: 110px;
     animation: animType_one 12s linear 0s alternate-reverse infinite;
 }
 
 .backgroundBlocFlex li:nth-child(3) .backgroundBlocFlexLabel {
-    margin-top: -20vh;
-    margin-left: 10vw;
+    margin-top: -70px;
+    margin-left: 100px;
     animation: animType_three 2s linear 0s infinite;
 }
 
 .backgroundBlocFlex li:nth-child(4) .backgroundBlocFlexLabel {
-    margin-top: 10vh;
-    margin-left: -3vw;
+    margin-top: 100px;
+    margin-left: -30px;
     animation: animType_four 3s linear 0s alternate infinite;
 }
 
 .backgroundBlocFlex li:nth-child(5) .backgroundBlocFlexLabel {
-    margin-top: -50vh;
-    margin-left: -50vw;
+    margin-top: -320px;
+    margin-left: -350px;
     animation: animType_two 2s linear 1s infinite;
 }
 
 .backgroundBlocFlex li:nth-child(6) .backgroundBlocFlexLabel {
-    margin-top: 1vh;
-    margin-left: 1vw;
+    margin-top: 10px;
+    margin-left: 10px;
     animation: animType_two 2s linear 0s infinite;
 }
 
 .backgroundBlocFlex li:nth-child(7) .backgroundBlocFlexLabel {
-    margin-top: -1vh;
-    margin-left: -18vw;
+    margin-top: -10px;
+    margin-left: -30px;
     animation: animType_three 1s linear 1s infinite;
 }
 
 .backgroundBlocFlex li:nth-child(8) .backgroundBlocFlexLabel {
-    margin-top: 3vh;
-    margin-left: -10vw;
+    margin-top: 30px;
+    margin-left: -20px;
     animation: animType_two 7s cubic-bezier(.5,-.75,.7,1.6) 0s alternate infinite;
 }
 
 .backgroundBlocFlex li:nth-child(9) .backgroundBlocFlexLabel {
-    margin-top: 8vh;
-    margin-left: 10vw;
+    margin-top: 20px;
+    margin-left: 40px;
     animation: animType_five 3s linear 0s alternate infinite;
 }
 

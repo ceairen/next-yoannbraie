@@ -9,14 +9,6 @@
     flex-direction: row;
 }
 
-.filtersBlocUl {
-
-}
-
-.filtersBlocUl > li {
-    
-}
-
 .filtersBlocUl > li > label {
     cursor: pointer;
     position: relative;
