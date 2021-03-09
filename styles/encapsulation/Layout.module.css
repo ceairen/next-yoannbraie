@@ -8,15 +8,14 @@
     z-index: 9999;
     left: 0;
     right: 0;
-    bottom: 0;
     top: 0;
     width: 100vw;
-    height: 100vh;
+    height: 0vh;
     background-color: rgba(0, 0, 0, .9);
     transform: translateY(-100vh);
-    transition: transform 1s cubicAnim;
+    transition: transform 1s cubicAnim, opacity .3s;
     opacity: 0;
-    animation: navComeOn .3s linear .3s forwards;
+    animation: navComeOn .3s linear 1s forwards;
     font-weight: 200;
 }
 
@@ -164,7 +163,7 @@
 }
 
 .main {
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
     transition: background-color .3s, color .3s;
     composes: darkMode from var-filepath;
@@ -187,10 +186,12 @@
 @keyframes navComeOn {
     0% {
         opacity: 0;
+        height: 0vh;
     }
 
     100% {
         opacity: 1;
+        height: 100vh;
     }
 }
 

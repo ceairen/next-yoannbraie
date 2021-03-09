@@ -34,6 +34,7 @@
 
 .timelineBlocCardHeader img {
     width: imgsize;
+    height: imgsize;
     filter: grayscale(0.6);
     transform: scale(.90);
 }
