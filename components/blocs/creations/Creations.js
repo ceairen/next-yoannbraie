@@ -10,10 +10,39 @@ export default function Creations(props) {
     let api = null
     let subscription = null
     let elementPerPage = 5
+    const threshold = 0.2
+    let observer = null
 
     const [baseUrl, setBaseUrl] = useState('')
     const [data, setData] = useState([])
     const [displayedData, setDisplayedData] = useState([])
+
+    const initObservation = () => {
+        var options = {
+            root: document.querySelector('#creationsBloc'),
+            rootMargin: '0px',
+            threshold: threshold
+        }
+        let elements = document.querySelectorAll('.crea-observable');
+        if(elements.length > 0) {
+            observer = new IntersectionObserver(callbackObservation, options);
+            for(let i = 0; i < elements.length; i ++){
+                observer.observe(elements[i]);
+            }
+        }
+    }
+    
+    const callbackObservation = (entries, observer) => {
+        entries.forEach(entry => {
+            if(entry.intersectionRatio > threshold){
+              let target = entry.target;
+              let targetImg = target.querySelector('img');
+              let targetImgSrc = targetImg.dataset.src;
+              targetImg.src = targetImgSrc;
+              observer.unobserve(target);
+            }
+        });
+    }
 
     const observeCreationsDatas = () => {
         subscription = apiServiceMessages.getMessage().subscribe(message => {
@@ -46,6 +75,9 @@ export default function Creations(props) {
             {displayedData.length > 0 &&
                 <ul className={`${styles.creationsBlocUl}`}>
                     {displayedData.reverse().map((value, index) => {
+                        if(displayedData.length -1 == index){
+                            setTimeout(() => { initObservation() }, 300)
+                        }
                         return <CreationsBloc prezMode={true} baseUrl={baseUrl} key={index} data={value}/>
                     })}
                 </ul>

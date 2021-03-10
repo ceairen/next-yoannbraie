@@ -10,6 +10,8 @@ export default function Creations() {
   
   let api = null
   let subscription = null
+  const threshold = 0.2
+  let observer = null
 
   const [baseUrl, setBaseUrl] = useState('')
   const [data, setData] = useState([])
@@ -17,6 +19,34 @@ export default function Creations() {
   const [filters, setFilters] = useState([])
   const [filtersToApply, setFiltersToApply] = useState([])
   const [filtersDisplayed, setFiltersDisplayed] = useState(false)
+
+
+  const initObservation = () => {
+    var options = {
+        root: document.querySelector('#sectionCreations'),
+        rootMargin: '0px',
+        threshold: threshold
+    }
+    let elements = document.querySelectorAll('.crea-observable');
+    if(elements.length > 0) {
+        observer = new IntersectionObserver(callbackObservation, options);
+        for(let i = 0; i < elements.length; i ++){
+            observer.observe(elements[i]);
+        }
+    }
+}
+
+const callbackObservation = (entries, observer) => {
+    entries.forEach(entry => {
+        if(entry.intersectionRatio > threshold){
+          let target = entry.target;
+          let targetImg = target.querySelector('img');
+          let targetImgSrc = targetImg.dataset.src;
+          targetImg.src = targetImgSrc;
+          observer.unobserve(target);
+        }
+    });
+}
 
   const observeCreationsDatas = () => {
       subscription = apiServiceMessages.getMessage().subscribe(message => {
@@ -88,12 +118,13 @@ export default function Creations() {
       api.getDatasByMethod(api.method.creations);
       return () => {
           subscription?.unsubscribe();
+          observer?.disconnect();
       }
   }, [])
 
   return (
     <Layout titlePage="Créations">
-      <Section>
+      <Section id="sectionCreations">
         <h1 className={globalStyles.globalh1}>Mes créations</h1>
         <div className={styles.creationsFlex}>
           <div className={`${styles.creationsFilters} ${filtersDisplayed ? styles.filtersDisplayed : ''}`}>
@@ -111,6 +142,9 @@ export default function Creations() {
             {displayedData.length > 0 &&
                 <ul className={`${styles.creationsBlocUl}`}>
                     {displayedData.reverse().map((value, index) => {
+                        if(data.length -1 == index){
+                            setTimeout(() => { initObservation() }, 300)
+                        }
                         return <CreationsBloc baseUrl={baseUrl} key={index} data={value}/>
                     })}
                 </ul>
