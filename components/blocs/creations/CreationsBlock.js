@@ -4,7 +4,7 @@ import stylesBlock from 'styles/creations/CreationsBlock.module.css'
 export default function CreationsBloc(props) {
 
     let data = props.data;
-    data.view = props.baseUrl.base_url.replace('{penId}', data.id) + '/:SameSite=None';
+    data.view = props.baseUrl.base_url.replace('{penId}', data.id);
 
     return (
         <>
@@ -15,7 +15,7 @@ export default function CreationsBloc(props) {
                             <h2>{data.title}</h2>
                             <div className={stylesBlock.lineSeparator}></div>
                             <div className={stylesBlock.blocImg}>
-                                <img alt="preview" src={data.view} />
+                                <img alt="preview" data-src={data.view} src={null} />
                             </div>
                         </a>
                     </Link>
