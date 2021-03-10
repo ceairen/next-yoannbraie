@@ -10,7 +10,7 @@ export default function TimelineBloc(props) {
             {data !== null &&
                 <li className={`${styles.timelineBlocCard} timeline-observable ${props?.indexKey % 2 !== 0 ? styles.leftTimelineBlocCard : styles.rightTimelineBlocCard}`}>
                     <div className={styles.timelineBlocCardHeader}>
-                        <img alt="logo-timeline" src={data.contenu.logo}/>
+                        <img alt="logo-timeline" data-src={data.contenu.logo} src={null}/>
                         <h3>{data.contenu.titre}</h3>
                     </div>
                     <hr className={globalStyles.miniSeparator} />

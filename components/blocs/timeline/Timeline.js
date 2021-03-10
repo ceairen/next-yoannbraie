@@ -40,6 +40,10 @@ export default function Timeline(props) {
         entries.forEach(entry => {
             if(entry.intersectionRatio > threshold){
                 let target = entry.target;
+                let targetImg = target.querySelector('img');
+                let targetImgSrc = targetImg.dataset.src;
+                targetImg.src = targetImgSrc;
+                targetImg.style.opacity = 1;
                 target.classList.add('visible');
                 observer.unobserve(target);
             }

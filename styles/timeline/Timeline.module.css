@@ -37,6 +37,7 @@
     height: imgsize;
     filter: grayscale(0.6);
     transform: scale(.90);
+    opacity: 0;
 }
 
 .timelineBlocCardHeader h3 {
@@ -90,6 +91,7 @@
 
     .timelineBlocCardHeader img {
         width: imgsizeLittle;
+        height: imgsizeLittle;
     }
 
     .timelineBlocCardContent {
