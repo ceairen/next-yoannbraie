@@ -12,6 +12,8 @@ export default function Creations() {
   let subscription = null
   const threshold = 0.2
   let observer = null
+  let resizeListener = null
+  let resizeTimeout = null
 
   const [baseUrl, setBaseUrl] = useState('')
   const [data, setData] = useState([])
@@ -19,6 +21,63 @@ export default function Creations() {
   const [filters, setFilters] = useState([])
   const [filtersToApply, setFiltersToApply] = useState([])
   const [filtersDisplayed, setFiltersDisplayed] = useState(false)
+
+  const reportWindowSize = () => {
+    clearTimeout(resizeTimeout)
+    resizeTimeout = setTimeout(() => {
+      reorderChilds()
+    }, (500))
+  }
+
+  const reinitChilds = () => {
+
+  }
+
+  const reorderChilds = () => {
+    if(resizeListener == null) {
+      resizeListener = window.addEventListener('resize', reportWindowSize);
+    }
+    let container = document.querySelector('#creaBlockUl');
+    container.style.width = null;
+    let elements = document.querySelectorAll('.crea-observable');
+    let elementSize = {width: elements[0].offsetWidth, height: elements[0].offsetHeight};
+    let contentSize = {width: container.offsetWidth, height: container.offsetHeight}
+    let elementsPerRow = Math.floor(contentSize.width / elementSize.width);
+    let position = {row: 0, col: 0, index: 0};
+    let newCol = 0;
+    let newRow = 0;
+    console.log(elementsPerRow)
+    for(var i = 0; i < elements.length; i++) {
+      let index = i;
+      let el = elements[index]
+      if(!el.classList.contains('tohide')){
+        if(newCol >= elementsPerRow) {
+          newCol = 0;
+          newRow += 1;
+        }
+        position = {row: newRow, col: newCol, index: index}
+        newCol += 1;
+        updateChildPosition(el, position, {cS: contentSize, eS: elementSize, hide: false})
+      }else{
+        updateChildPosition(el, position, {cS: contentSize, eS: elementSize, hide: true})
+      }
+    }
+    container.style.height = `${elementSize.height * (position.row + 1)}px`;
+    if(elementsPerRow == 1){
+      container.style.width = `${elementSize.width}px`;
+    }
+  }
+
+  const updateChildPosition = (element, position, options) => {
+    let elementSize = options.eS;
+    let x = elementSize.width * position.col;
+    let y = elementSize.height * position.row;
+    let z = 0;
+    let scaleValue = options.hide ? 0 : 0.9;
+    let op = options.hide ? 0 : 1
+    element.style.transform = 'translate3d('+x+'px, '+y+'px, '+z+'px) scale('+scaleValue+')';
+    element.style.opacity = op;
+  }
 
 
   const initObservation = () => {
@@ -88,7 +147,32 @@ const callbackObservation = (entries, observer) => {
       fta.splice(indexOfFilter, 1);
     }
     setFiltersToApply(fta);
-    applyFilters(fta)
+    applyFiltersDom(fta)
+    //applyFilters(fta)
+  }
+
+  const applyFiltersDom = (filters) => {
+    let elements = document.querySelectorAll('.crea-observable');
+    for(var i = 0; i < elements.length; i ++) {
+      let el = elements[i];
+      let elKeywords = el.dataset.keywords.split(',');
+      let shouldBeDisplay = false
+      if(filters.length > 0) {
+        elKeywords.forEach((e) => {
+          if(filters.indexOf(e.toLowerCase()) !== -1) {
+            shouldBeDisplay = true;
+          }
+        })
+      }else{
+        shouldBeDisplay = true
+      }
+      if(shouldBeDisplay) {
+        el.classList.remove('tohide')
+      }else{
+        el.classList.add('tohide')
+      }
+    }
+    reorderChilds();
   }
 
   const applyFilters = (filters) => {
@@ -109,6 +193,7 @@ const callbackObservation = (entries, observer) => {
   const handleToggleFilters = (e) => {
     e.preventDefault();
     let fd = filtersDisplayed
+
     setFiltersDisplayed(!fd)
   }
 
@@ -119,6 +204,10 @@ const callbackObservation = (entries, observer) => {
       return () => {
           subscription?.unsubscribe();
           observer?.disconnect();
+          window?.removeEventListener('resize', reportWindowSize)
+          clearTimeout(resizeTimeout)
+          resizeListener = null;
+          resizeTimeout = null
       }
   }, [])
 
@@ -140,10 +229,15 @@ const callbackObservation = (entries, observer) => {
           </div>
           <div className={styles.creationsContent}>
             {displayedData.length > 0 &&
-                <ul className={`${styles.creationsBlocUl}`}>
+                <ul id="creaBlockUl" className={`${styles.creationsBlocUl}`}>
                     {displayedData.reverse().map((value, index) => {
                         if(data.length -1 == index){
-                            setTimeout(() => { initObservation() }, 300)
+                            setTimeout(() => { 
+                              reorderChilds() 
+                              setTimeout(() => {
+                                initObservation()
+                              }, 500)
+                            }, 300)
                         }
                         return <CreationsBloc baseUrl={baseUrl} key={index} data={value}/>
                     })}
