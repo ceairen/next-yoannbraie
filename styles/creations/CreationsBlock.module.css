@@ -252,5 +252,9 @@
         margin-left: 0 !important;
 		margin: 60px 20px; 
 		z-index: -1 !important;
-    }
+	}
+	
+	li.creaBlockPrez {
+		transform: scale(.9) !important;
+	}
 }
