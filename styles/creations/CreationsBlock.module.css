@@ -243,6 +243,7 @@
     .creaBlock {
         transform: scale(1) !important;
         margin-left: 0 !important;
-        margin: 60px 20px; 
+		margin: 60px 20px; 
+		z-index: -1 !important;
     }
 }
