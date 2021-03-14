@@ -44,7 +44,8 @@ export default function Timeline(props) {
                 let targetImgSrc = targetImg.dataset.src;
                 targetImg.src = targetImgSrc;
                 targetImg.style.opacity = 1;
-                target.classList.add('visible');
+                target.style.opacity = 1;
+                target.style.transform = "translateX(0)";
                 observer.unobserve(target);
             }
         });

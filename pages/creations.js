@@ -29,16 +29,14 @@ export default function Creations() {
     }, (500))
   }
 
-  const reinitChilds = () => {
-
-  }
-
   const reorderChilds = () => {
     if(resizeListener == null) {
       resizeListener = window.addEventListener('resize', reportWindowSize);
     }
     let container = document.querySelector('#creaBlockUl');
-    container.style.width = null;
+    if(container !== null){
+      container.style.width = null;
+    }
     let elements = document.querySelectorAll('.crea-observable');
     let elementSize = {width: elements[0].offsetWidth, height: elements[0].offsetHeight};
     let contentSize = {width: container.offsetWidth, height: container.offsetHeight}
@@ -46,7 +44,6 @@ export default function Creations() {
     let position = {row: 0, col: 0, index: 0};
     let newCol = 0;
     let newRow = 0;
-    console.log(elementsPerRow)
     for(var i = 0; i < elements.length; i++) {
       let index = i;
       let el = elements[index]
@@ -148,7 +145,6 @@ const callbackObservation = (entries, observer) => {
     }
     setFiltersToApply(fta);
     applyFiltersDom(fta)
-    //applyFilters(fta)
   }
 
   const applyFiltersDom = (filters) => {
@@ -175,6 +171,7 @@ const callbackObservation = (entries, observer) => {
     reorderChilds();
   }
 
+  //by url
   const applyFilters = (filters) => {
     let dataToDisplay = data.reduce((acc, cur) => {
       cur.filters.forEach(f => {
